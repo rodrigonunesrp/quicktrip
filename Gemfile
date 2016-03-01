@@ -55,6 +55,10 @@ gem 'delayed_job_active_record'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
 
+group :production do
+	gem 'newrelic_rpm'
+end
+
 group :development do
   gem 'pry-rails'
   gem 'better_errors'
