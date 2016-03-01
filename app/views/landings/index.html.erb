@@ -1,27 +1,23 @@
 
-
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top"  onclick = $("#menu-close").click(); >Start Bootstrap</a>
+                <a href="#top"  onclick = $("#menu-close").click(); >QuickTrip Menu</a>
             </li>
             <li>
                 <a href="#top" onclick = $("#menu-close").click(); >Home</a>
             </li>
             <li>
-                <a href="#about" onclick = $("#menu-close").click(); >About</a>
+                <a href="#search" onclick = $("#menu-close").click(); >Busca de Hotéis</a>
             </li>
             <li>
-                <a href="#services" onclick = $("#menu-close").click(); >Services</a>
+                <a href="#portfolio" onclick = $("#menu-close").click(); >Calendário de Eventos</a>
             </li>
             <li>
-                <a href="#portfolio" onclick = $("#menu-close").click(); >Portfolio</a>
-            </li>
-            <li>
-                <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
+                <a href="#contact" onclick = $("#menu-close").click(); >Contato</a>
             </li>
         </ul>
     </nav>
@@ -30,15 +26,17 @@
     <header id="top" class="header">
         <div class="text-vertical-center">
             <h1>QuickTrip</h1>
-            <h3>Procurando hotéis para algumas horas?<BR>Então está no local certo!</h3>
+            <h3>Procurando hotéis para algumas horas?<BR>Então você está no local certo!</h3>
             <br>
             <a href="#search" class="btn btn-dark btn-lg">Buscar Já!</a>
+            <br><br>
+            <a href="#portfolio" class="btn btn-dark btn-lg">Veja os Eventos de nossos parceiros!</a>
         </div>
     </header>
 
     <!-- Search -->
-    <section id="search" class="search">
-        <IFRAME src='http://hq.codus.com.br/affiliate?token=LNxrZNOa6QkkSn8zYLmi_Q' style='width: 100%; min-height: 450px;'></IFRAME>
+    <section id="search" class="search" style="background-color: #f6f6f6; text-align: center;">
+        <IFRAME src="<%= ENV['SEARCH_URL'] %>" style='max-width: 1000px;width: 1000px;min-height: 600px;margin: auto;text-align: center;border: 1px solid #444;margin-top: 5px;border-radius: 15px;'></IFRAME>
     </section>
 
     <!-- About -->
@@ -56,6 +54,7 @@
 -->
     <!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+<!--
     <section id="services" class="services bg-primary">
         <div class="container">
             <div class="row text-center">
@@ -116,61 +115,53 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.row (nested) -->
+                    <!-- /.row (nested) --
                 </div>
-                <!-- /.col-lg-10 -->
+                <!-- /.col-lg-10 --
             </div>
-            <!-- /.row -->
+            <!-- /.row --
         </div>
-        <!-- /.container -->
+        <!-- /.container --
     </section>
+-->
 
     <!-- Callout -->
+<!--
     <aside class="callout">
         <div class="text-vertical-center">
             <h1>Vertically Centered Text</h1>
         </div>
     </aside>
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
+-->
+    <!-- Events -->
+    <section id="portfolio" class="bg-primary" style="backgroung-color: #fff;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Our Work</h2>
-                    <hr class="small">
+                    <h1 style="text-s">Eventos</h1>
+                    <hr class="medium">
                     <div class="row">
+                      <% @packages.each do |package| %>
                         <div class="col-md-6">
                             <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="images/portfolio-1.jpg">
+                              <% if package.id == 1 %>
+                                <%= link_to(image_tag("/images/seminario_mecanizacao_Fotor.jpg", class: "img-portfolio img-responsive", title: package.description ), package_path(package))%>
+                              <% elsif package.id == 2 %>
+                                <%= link_to(image_tag("/images/agrishow_Fotor.jpg", class: "img-portfolio img-responsive", title: package.description ), package_path(package))%>
+                              <% else %>
+                                <h3>Não há Pacote para eventos registrado no momento!</h3>
+                              <% end %>
+                                <!--
+                                <a href="/show?utf8=✓&city_name=Rio+de+Janeiro&state_name=BR&by_latitude=-22.9068467&by_longitude=-43.1728965&by_pack_length=12&room_category=1&by_address=Rio+de+Janeiro%2C+Rio+de+Janeiro+-+RJ%2C+Brasil&by_number_of_people=1&by_checkin_date=06%2F04%2F2016&by_checkin_hour=18&by_checkin_date=06%2F04%2F2016&by_checkin_hour=18&by_checkin_date=06%2F04%2F2016&by_checkin_hour=18">
+                                    <img class="img-portfolio img-responsive" src="" title="18º Seminário de Mecanização - Grupo IDEA">
                                 </a>
+                              -->
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="images/portfolio-2.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="images/portfolio-3.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="images/portfolio-4.jpg">
-                                </a>
-                            </div>
-                        </div>
+                      <% end %>
                     </div>
                     <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">View More Items</a>
+                    <!--<a href="#" class="btn btn-dark">View More Items</a> -->
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -180,6 +171,7 @@
     </section>
 
     <!-- Call to Action -->
+<!-- 
     <aside class="call-to-action bg-primary">
         <div class="container">
             <div class="row">
@@ -191,10 +183,41 @@
             </div>
         </div>
     </aside>
-
-    <!-- Map -->
+-->
+    <!-- Contact -->
+    <section id="contact" class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h1>Contato</h1>
+                    <hr class="medium" style="background-color: #555;height: 1px;">
+                    <h4><strong>Endereço</strong>
+                    </h4>
+                    <p>Rua José Rosário, 1010<br>Ribeirão Preto, SP, 14096-200</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> +55 16 99287-9696</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:contato@quicktrip.com.br">contato@quicktrip.com.br</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Quicktrip 2016</p>
+                </div>
+            </div>
+        </div>
+    </section>
 <!--
-    <section id="contact" class="map">
         <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
         <br />
         <small>

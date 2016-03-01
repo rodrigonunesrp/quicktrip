@@ -204,6 +204,7 @@ hr.small {
 
 .img-portfolio {
     margin: 0 auto;
+    border-radius: 15px;
 }
 
 .img-portfolio:hover {

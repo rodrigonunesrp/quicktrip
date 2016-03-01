@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'landings/index'
+  get 'show' => 'landings#show'
+  #   get 'products/:id' => 'catalog#view'
 
   resources :packages do
   #->Prelang (voting/acts_as_votable)
