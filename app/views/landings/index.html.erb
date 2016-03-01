@@ -36,7 +36,7 @@
 
     <!-- Search -->
     <section id="search" class="search" style="background-color: #f6f6f6; text-align: center;">
-        <IFRAME src="<%= ENV['SEARCH_URL'] %>" style='max-width: 1000px;width: 1000px;min-height: 600px;margin: auto;text-align: center;border: 1px solid #444;margin-top: 5px;border-radius: 15px;'></IFRAME>
+        <IFRAME src="<%= "#{ENV['SEARCH_URL']}#{ENV['AFFILIATE_TOKEN']}"%>" style='max-width: 1000px;width: 1000px;min-height: 600px;margin: auto;text-align: center;border: 1px solid #444;margin-top: 5px;border-radius: 15px;'></IFRAME>
     </section>
 
     <!-- About -->
