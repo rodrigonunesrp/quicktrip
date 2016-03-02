@@ -40,7 +40,7 @@ body {
 .btn-dark:hover,
 .btn-dark:focus,
 .btn-dark:active {
-    color: #fff;
+    color: #ddd !important;
     background-color: rgba(0,0,0,0.7);
 }
 
