@@ -1,14 +1,23 @@
 <%- model_class = Package -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => @package.package_type.package_type.titleize %></h1>
-</div>
 
-<div class="fieldset">
-  <dl>
-      <dd><pre class="prettyprint"><%= @package.description %></pre></dd>
-  </dl>
-</div>
+<!-- Header -->
+<header id="top" class="header" style="height: 50%;background: url(/images/events.jpg) no-repeat 50% 90% scroll;background-size: 100%;">
+    <div class="text-vertical-center">
+        <h1><img src="/images/quicktrip_logo_site.png"></h1>
+        <br>
+    </div>
+</header>
+
 <!-- Search -->
 <section id="search" class="search" style="background-color: #f6f6f6;text-align: center;">
-    <IFRAME src="<%= "#{ENV['SEARCH_URL']}/pesquisar#{ENV['AFFILIATE_TOKEN']}&#{@package.link}" %>" style='max-width: 1010px;width: 1010px;min-height: 1000px;margin: auto;text-align: center;border: 1px solid #565656;margin-top: 5px;border-radius: 15px;padding:5px;'></IFRAME>
+    <div class="container">
+        <div class="row">
+			<p style="color: #EBC515;text-shadow: 2px 3px 5px #545454;font-size: 40px;"><%=t '.title', :default => @package.package_type.package_type.titleize %></p>
+			<div class="fieldset">
+				<h3 style="color: #8C7927;text-shadow: 1px 2px 3px #949494;"><%= @package.description %></h3>
+			</div>
+		    <IFRAME src="<%= "#{ENV['SEARCH_URL']}/pesquisar#{ENV['AFFILIATE_TOKEN']}&#{@package.link}" %>" style='max-width: 1010px;width: 1010px;min-height: 1000px;margin: auto;text-align: center;border: 1px solid #565656;margin-top: 5px;border-radius: 15px;padding:5px;'></IFRAME>
+        </div>
+    </div>
 </section>
+
