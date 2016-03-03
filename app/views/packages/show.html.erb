@@ -3,7 +3,7 @@
 <!-- Header -->
 <header id="top" class="header" style="height: 50%;background: url(/images/events.jpg) no-repeat 50% 90% scroll;background-size: 100%;">
     <div class="text-vertical-center">
-        <h1><img src="/images/quicktrip_logo_site.png"></h1>
+        <h1><a href="/"><img src="/images/quicktrip_logo_site.png"></a></h1>
         <br>
     </div>
 </header>
@@ -16,7 +16,7 @@
 			<div class="fieldset">
 				<h3 style="color: #8C7927;text-shadow: 1px 2px 3px #949494;"><%= @package.description %></h3>
 			</div>
-		    <IFRAME src="<%= "#{ENV['SEARCH_URL']}/pesquisar#{ENV['AFFILIATE_TOKEN']}&#{@package.link}" %>" style='max-width: 1010px;width: 1010px;min-height: 1000px;margin: auto;text-align: center;border: 1px solid #565656;margin-top: 5px;border-radius: 15px;padding:5px;'></IFRAME>
+		    <IFRAME src="<%= "#{ENV['SEARCH_URL']}/pesquisar#{ENV['AFFILIATE_TOKEN']}&#{@package.link}" %>" style='width: 100%;min-height: 600px;margin: auto;text-align: center;border: 1px solid #444;margin-top: 5px;border-radius: 15px;padding:10px'></IFRAME>
         </div>
     </div>
 </section>

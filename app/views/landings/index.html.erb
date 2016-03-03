@@ -14,7 +14,7 @@
                 <a href="#search" onclick = $("#menu-close").click(); >Busca de Hotéis</a>
             </li>
             <li>
-                <a href="#portfolio" onclick = $("#menu-close").click(); >Calendário de Eventos</a>
+                <a href="#portfolio" onclick = $("#menu-close").click(); >Eventos</a>
             </li>
             <li>
                 <a href="#contact" onclick = $("#menu-close").click(); >Contato</a>
@@ -38,7 +38,7 @@
     <section id="search" class="search" style="background-color: #f6f6f6; text-align: center;">
         <div class="container">
             <div class="row">
-              <IFRAME src="<%= "#{ENV['SEARCH_URL']}#{ENV['AFFILIATE_TOKEN']}"%>" style='width: 100%;min-height: 600px;margin: auto;text-align: center;border: 1px solid #444;margin-top: 5px;border-radius: 15px;'></IFRAME>
+              <IFRAME src="<%= "#{ENV['SEARCH_URL']}#{ENV['AFFILIATE_TOKEN']}"%>" style='width: 100%;min-height: 600px;margin: auto;text-align: center;border: 1px solid #444;margin-top: 5px;border-radius: 15px;padding:10px;'></IFRAME>
             </div>
         </div>
     </section>
@@ -188,39 +188,7 @@
         </div>
     </aside>
 -->
-    <!-- Contact -->
-    <section id="contact" class="">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h1>Contato</h1>
-                    <hr class="medium" style="background-color: #555;height: 1px;">
-                    <h4><strong>Endereço</strong>
-                    </h4>
-                    <p>Rua José Rosário, 1010<br>Ribeirão Preto, SP, 14096-200</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i> +55 16 99287-9696</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:contato@quicktrip.com.br">contato@quicktrip.com.br</a>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
-                        </li>
-                    </ul>
-                    <hr class="small">
-                    <p class="text-muted">Copyright &copy; Quicktrip 2016</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
 <!--
         <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
         <br />
@@ -230,3 +198,16 @@
         </iframe>
     </section>
 -->
+
+    <!-- Contact -->
+    <section id="contact" class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h1>Contato</h1>
+                    <hr class="medium" style="background-color: #555;height: 1px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
