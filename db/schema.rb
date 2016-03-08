@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229193009) do
+ActiveRecord::Schema.define(version: 20160308043804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,18 @@ ActiveRecord::Schema.define(version: 20160229193009) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "package_items", force: true do |t|
+    t.string   "item"
+    t.text     "link"
+    t.text     "description"
+    t.integer  "package_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+  end
+
+  add_index "package_items", ["package_id"], name: "index_package_items_on_package_id", using: :btree
+
   create_table "package_types", force: true do |t|
     t.string   "package_type"
     t.text     "description"
@@ -91,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160229193009) do
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   add_index "packages", ["package_type_id"], name: "index_packages_on_package_type_id", using: :btree
