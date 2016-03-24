@@ -5,19 +5,19 @@
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top"  onclick = $("#menu-close").click(); >QuickTrip Menu</a>
+                <a href="#top"  class="scrollpage" onclick = $("#menu-close").click(); >QuickTrip Menu</a>
             </li>
             <li>
-                <a href="#top" onclick = $("#menu-close").click(); >Home</a>
+                <a href="#top"  class="scrollpage" onclick = $("#menu-close").click(); >Home</a>
             </li>
             <li>
-                <a href="#search" onclick = $("#menu-close").click(); >Busca de Hotéis</a>
+                <a href="#search"  class="scrollpage" onclick = $("#menu-close").click(); >Busca de Hotéis</a>
             </li>
             <li>
-                <a href="#portfolio" onclick = $("#menu-close").click(); >Eventos</a>
+                <a href="#portfolio"  class="scrollpage" onclick = $("#menu-close").click(); >Eventos</a>
             </li>
             <li>
-                <a href="#contact" onclick = $("#menu-close").click(); >Contato</a>
+                <a href="#contact"  class="scrollpage" onclick = $("#menu-close").click(); >Contato</a>
             </li>
         </ul>
     </nav>
@@ -26,21 +26,26 @@
     <header id="top" class="header">
         <div class="text-vertical-center">
             <h1><img src="/images/quicktrip_logo_site.png"></h1>
-            <h3 style="color: #928239">Procurando hotéis para algumas horas?<BR>Então você está no local certo!</h3>
+            <h3 style="color: #928239">Procurando hotéis?<BR>Então você está no local certo!</h3>
             <br>
-            <a href="#search" class="btn btn-dark btn-lg">Buscar Já!</a>
+            <a href="#search" class="btn btn-dark btn-lg scrollpage">Buscar Já!</a>
             <br><br>
-            <a href="#portfolio" class="btn btn-dark btn-lg">Veja os Eventos de nossos parceiros!</a>
+            <a href="#portfolio" class="btn btn-dark btn-lg scrollpage">Veja os Eventos de nossos parceiros!</a>
         </div>
     </header>
 
     <!-- Search -->
     <section id="search" class="search" style="background-color: #f6f6f6; text-align: left; padding: 30px 5px;">
         <div class="container">
-            <div class="row">
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#menu1">Hotel</a></li>
+              <li><a data-toggle="tab" href="#menu2">Hotel por hora</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="menu1" class="tab-pane fade in active">
                 <ins class="bookingaff" data-aid="956720" data-target_aid="956646" data-prod="nsb" data-width="360" data-height="380">
-                    <!-- Anything inside will go away once widget is loaded. -->
-                    <a href="//www.booking.com?aid=956646">Booking.com</a>
+                  <!-- Anything inside will go away once widget is loaded. -->
+                  <a href="//www.booking.com?aid=956646">Booking.com</a>
                 </ins>
                 <script type="text/javascript">
                     (function(d, sc, u) {
@@ -51,6 +56,12 @@
                       p.parentNode.insertBefore(s,p);
                       })(document, 'script', '//aff.bstatic.com/static/affiliate_base/js/flexiproduct.js');
                 </script>
+              </div>
+              <div id="menu2" class="tab-pane fade">
+                <IFRAME src="<%= "#{ENV['SEARCH_URL']}#{ENV['AFFILIATE_TOKEN']}"%>" style='width: 100%;min-height: 600px;margin: auto;text-align: center;border: 1px solid #444;margin-top: 5px;border-radius: 15px;padding:10px;'>
+                </IFRAME>
+              </div>
+
             <!--
                 <ins class="bookingaff" data-aid="956654" data-target_aid="956646" data-prod="sbp" data-width="900" data-height="300" data-lang="xb" data-currency="BRL" data-cc1="br">
                     <!-- Anything inside will go away once widget is loaded. --
@@ -65,9 +76,6 @@
                       p.parentNode.insertBefore(s,p);
                       })(document, 'script', '//aff.bstatic.com/static/affiliate_base/js/flexiproduct.js');
                 </script> 
-            -->
-            <!--
-              <IFRAME src="<%= "#{ENV['SEARCH_URL']}#{ENV['AFFILIATE_TOKEN']}"%>" style='width: 100%;min-height: 600px;margin: auto;text-align: center;border: 1px solid #444;margin-top: 5px;border-radius: 15px;padding:10px;'></IFRAME>
             -->
             </div>
         </div>
@@ -238,4 +246,3 @@
             </div>
         </div>
     </section>
-
