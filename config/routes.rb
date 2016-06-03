@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   get 'show' => 'landings#show'
   #   get 'products/:id' => 'catalog#view'
 
-  resources :packages do
+  resources :packages, only: :show do
   #->Prelang (voting/acts_as_votable)
-  member do
-    get "vote"
+    resources :package_items, only: :show
+
+    member do
+      get "vote"
+    end
   end
-end
 
 
   resources :contacts
@@ -82,5 +84,6 @@ end
     put    "signup"  => "users/registrations#update", as: :update_user_registration
     get    "account" => "users/registrations#edit",   as: :edit_user_registration
   end
+
 
 end

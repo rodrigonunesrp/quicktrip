@@ -1,0 +1,28 @@
+<%- model_class = Package -%>
+
+<!-- Header -->
+<header id="top" class="header" style="height: 30%;background: url(/images/events.jpg) no-repeat 50% 90% scroll;background-size: 100%;">
+    <div class="row text-vertical-center">
+      <a href="/"><img src="/images/quicktrip_logo_site.png" style="height: 150px;"></a>
+    </div>
+</header>
+
+<!-- Search -->
+<section id="search" class="search" style="background-color: #f6f6f6;text-align: center;">
+    <div class="container">
+      <div class="row">
+        <p style="color: #EBC515;text-shadow: 2px 3px 5px #545454;font-size: 40px;">
+          <%=t '.title', :default => @package.package_type.package_type.titleize %>
+          <div class="btn-link" style="position: relative;top: -40px;right: 20px;text-align: right;">
+            <a href="/">Voltar</a>
+          </div>
+        </p>
+			<div class="fieldset">
+				<h3 style="color: #8C7927;text-shadow: 1px 2px 3px #949494;"><%= @package.description %></h3>
+			</div>
+
+      <IFRAME src="<%= "#{ENV['SEARCH_URL']}/pesquisar#{ENV['AFFILIATE_TOKEN']}&#{@package_item.link}" %>" style='width: 100%;min-height: 600px;margin: auto;text-align: center;border: 1px solid #444;margin-top: 5px;border-radius: 15px;padding:10px'></IFRAME>
+    </div>
+
+</section>
+

@@ -1,10 +1,11 @@
 ActiveAdmin.register PackageItem do
-  permit_params :item, :link, :description, :package_id, :image
+  permit_params :item, :link, :description, :package_id, :image, :pack_type
 
 	form do |f|
 	  f.inputs do
 	    f.input :package_id, :label => 'Package', :as => :select, :collection => Package.all.map{|p| ["#{p.description}", p.id]}
 	    f.input :item
+	    f.input :pack_type, :label => 'Tipo do Pacote', :as => :select, :collection => {"Abrir campo link em nova janela" => 1, "Abrir show page do package_item e carregar link no iframe" => 2}
 	    f.input :image
 	    f.input :link
 	    f.input :description

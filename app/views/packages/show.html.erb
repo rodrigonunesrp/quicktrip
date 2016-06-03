@@ -34,16 +34,28 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <%= link_to pack_item.item, pack_item.link, target: "_blank"  %>
+              <% if pack_item.pack_type == 2 %>
+                <%= link_to pack_item.item, package_package_item_url(@package.id,pack_item.id), target: "_blank"  %>
+              <% else %>
+                <%= link_to pack_item.item, pack_item.link, target: "_blank"  %>
+              <% end %>
             </h4>
           </div>
           <div class="panel-body">
             <div class="row" style="margin-bottom: 20px ">
               <div class="col-md-4 col-sm-4 col-xs-4">
-                <%= link_to( image_tag(pack_item.image, width: "200px", height: "200px", class: "img-thumbnail"), pack_item.link, target: "_blank" ) %>
+                <% if pack_item.pack_type == 2 %>
+                  <%= link_to image_tag(pack_item.image, width: "200px", height: "200px", class: "img-thumbnail"), package_package_item_url(@package.id,pack_item.id), target: "_blank"  %>
+                <% else %>
+                  <%= link_to( image_tag(pack_item.image, width: "200px", height: "200px", class: "img-thumbnail"), pack_item.link, target: "_blank" ) %>
+                <% end %>
               </div>
               <div class="col-md-8 col-sm-8 col-xs-8">
+              <% if pack_item.pack_type == 2 %>
+                <%= link_to pack_item.description, package_package_item_url(@package.id,pack_item.id), target: "_blank"  %>
+              <% else %>
                 <%= link_to pack_item.description, pack_item.link, target: "_blank" %>
+              <% end %>
               </div>
             </div>
           </div>
