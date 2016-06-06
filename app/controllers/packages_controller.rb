@@ -10,6 +10,8 @@ class PackagesController < ApplicationController
   # GET /packages/1
   # GET /packages/1.json
   def show
+    @package = Package.find(params[:id])
+    @package_items = PackageItem.where(package: @package.id).order("updated_at DESC")
   end
 
   # GET /packages/new
