@@ -1,6 +1,16 @@
 ActiveAdmin.register PackageItem do
   permit_params :item, :link, :description, :package_id, :image, :pack_type
 
+  	index do
+		column :package_id
+		column :item
+		column :pack_type
+		column image_tag :image
+		column :created_at
+		column :updated_at
+		actions
+	end
+
 	form do |f|
 	  f.inputs do
 	    f.input :package_id, :label => 'Package', :as => :select, :collection => Package.all.map{|p| ["#{p.description}", p.id]}
