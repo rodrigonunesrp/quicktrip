@@ -2,17 +2,17 @@ ActiveAdmin.register PackageItem do
   permit_params :item, :link, :description, :package_id, :image, :pack_type
 
   	index do
-		column "Image" do |image| 
-			"<img src='#{image.image}' height='100px' width='150px' >".html_safe
+		column "Image" do |package_item| 
+			"<img src='#{package_item.image}' height='100px' width='150px' >".html_safe
 		end	
-		column "Pacote" do |package|
-			package.package.description
+		column "Pacote" do |package_item|
+			package_item.package.description unless package_item.package == nil
 		end
-		column "Tipo" do |package|
-			package.package.package_type.package_type
+		column "Tipo" do |package_item|
+			package_item.package.package_type.package_type unless package_item.package == nil
 		end
-		column "Abrir link como"do |package|
-			(package.pack_type == 1) ? "Abrir campo link em nova janela" : "Abrir show page do package_item e carregar link no iframe" 
+		column "Abrir link como" do |package_item|
+			(package_item.pack_type == 1) ? "Abrir campo link em nova janela" : "Abrir show page do package_item e carregar link no iframe" 
 		end
 		column :item
 		column :created_at
