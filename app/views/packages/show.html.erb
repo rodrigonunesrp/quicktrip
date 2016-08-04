@@ -14,9 +14,11 @@
       <div class="row">
         <p style="color: #EBC515;text-shadow: 2px 3px 5px #545454;font-size: 40px;">
           <%=t '.title', :default => @package.package_type.package_type.titleize %>
-          <div class="btn-link" style="position: relative;top: -40px;right: 20px;text-align: right;">
-            <a href="/">Voltar</a>
-          </div>
+          <% unless params[:header] == 'no' %>
+            <div class="btn-link" style="position: relative;top: -40px;right: 20px;text-align: right;">
+              <a href="/">Voltar</a>
+            </div>
+          <% end %>
         </p>
 			<div class="fieldset">
 				<h3 style="color: #8C7927;text-shadow: 1px 2px 3px #949494;"><%= @package.description %></h3>
